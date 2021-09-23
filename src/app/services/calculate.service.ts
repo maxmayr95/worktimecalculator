@@ -9,7 +9,7 @@ export class CalculateService {
 
 
   public yerarlyToDaily(ammount: number) {
-    return ammount / 12 / 30;
+    return ammount / 12 / 22; //8 day s of weekend
   }
 
   public dailyToMinute(ammount: number, hoursPerWeek:number) {

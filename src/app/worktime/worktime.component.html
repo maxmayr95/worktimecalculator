@@ -11,20 +11,20 @@
             <form>
                 <div class="form-group">
                     <label for="salary">Worktime</label>
-                    <input type="number" class="form-control" id="salary" aria-describedby="emailHelp"
-                        placeholder="Enter hoursPerWeek" [value]="hoursPerWeek">
+                    <input type="number" class="form-control" id="salary" aria-describedby="emailHelp" name="worktime"
+                        placeholder="Enter hoursPerWeek" [(ngModel)]="hoursPerWeek">
                     <small id="emailHelp" class="form-text text-muted">Your hours per week</small>
                 </div>
                 <div class="form-group">
                     <label for="salary">Salary</label>
-                    <input type="number" class="form-control" id="salary" aria-describedby="emailHelp"
-                        placeholder="Enter salary" [value]="work.salary.yearly">
+                    <input type="number" class="form-control" id="salary" aria-describedby="emailHelp" name="salary"
+                        placeholder="Enter salary" [(ngModel)]="work.salary.yearly">
                     <small id="emailHelp" class="form-text text-muted">Your yearly salayr</small>
                 </div>
                 <div class="form-group">
                     <label for="taxes">Taxes</label>
-                    <input type="number" class="form-control" id="taxes" aria-describedby="emailHelp"
-                        placeholder="Enter taxes" [value]="work.tax.yearly">
+                    <input type="number" class="form-control" id="taxes" aria-describedby="emailHelp" name="taxes"
+                        placeholder="Enter taxes" [(ngModel)]="work.tax.yearly">
                     <small id="emailHelp" class="form-text text-muted">Your yearly taxes. For swiss it can be
                         caluclated here: <a target="_blank"
                             href="https://en.comparis.ch/steuern/steuervergleich/default">Tax Calculator</a>
@@ -33,34 +33,34 @@
 
                 <div class="form-group">
                     <label for="pillar">Pillar 3A</label>
-                    <input type="number" class="form-control" id="pillar" aria-describedby="emailHelp"
-                        placeholder="Enter pillar 3a" [value]="work.pillar.yearly">
+                    <input type="number" class="form-control" id="pillar" aria-describedby="emailHelp" name="pillars"
+                        placeholder="Enter pillar 3a" [(ngModel)]="work.pillar.yearly">
                     <small id="emailHelp" class="form-text text-muted">Your yearly pillar 3a </small>
                 </div>
 
                 <div class="form-group">
                     <label for="rent">Rent</label>
-                    <input type="number" class="form-control" id="rent" aria-describedby="emailHelp"
-                        placeholder="Enter rent" [value]="work.rent.monthly">
+                    <input type="number" class="form-control" id="rent" aria-describedby="emailHelp" name="rent"
+                        placeholder="Enter rent" [(ngModel)]="work.rent.monthly">
                     <small id="emailHelp" class="form-text text-muted">Your monthly rent</small>
                 </div>
                 <div class="form-group">
                     <label for="food">Food</label>
-                    <input type="number" class="form-control" id="food" aria-describedby="emailHelp"
-                        placeholder="Enter going out money" [value]="work.food.monthly">
+                    <input type="number" class="form-control" id="food" aria-describedby="emailHelp" name="food"
+                        placeholder="Enter going out money" [(ngModel)]="work.food.monthly">
                     <small id="emailHelp" class="form-text text-muted">Your monthly going out money</small>
                 </div>
 
                 <div class="form-group">
                     <label for="going-out">Going out</label>
-                    <input type="number" class="form-control" id="going-out" aria-describedby="emailHelp"
-                        placeholder="Enter going out money" [value]="work.goOut.monthly">
+                    <input type="number" class="form-control" id="going-out" aria-describedby="emailHelp" name="go-out"
+                        placeholder="Enter going out money" [(ngModel)]="work.goOut.monthly">
                     <small id="emailHelp" class="form-text text-muted">Your monthly going out money</small>
                 </div>
                 <div class="form-group">
                     <label for="other">Other</label>
-                    <input type="number" class="form-control" id="other" aria-describedby="emailHelp"
-                        placeholder="Enter going out money" [value]="work.other.monthly">
+                    <input type="number" class="form-control" id="other" aria-describedby="emailHelp" name="other"
+                        placeholder="Enter going out money" [(ngModel)]="work.other.monthly">
                     <small id="emailHelp" class="form-text text-muted">Your monthly other costs</small>
                 </div>
                 <button type="button" class="btn btn-primary" (click)="calculate();">Calculate</button>

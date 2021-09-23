@@ -42,7 +42,7 @@ export class WorktimeComponent implements OnInit {
     }
     field.monthly.toFixed(2)
     
-    field.daily = field.monthly / 30;
+    field.daily = field.monthly / 22;
     field.daily = Number(field.daily.toFixed(2))
     let minutes = Math.ceil(field.daily/this.work.salaryPerMinute);
     let endTime = new CalculationTime();
@@ -54,6 +54,7 @@ export class WorktimeComponent implements OnInit {
     totalTime.zero();
     totalTime.addMinutes(minutes);
     field.totalTime = totalTime;
+
   }
 
   private calculateSaving(){
