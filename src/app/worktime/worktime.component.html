@@ -1,0 +1,160 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+
+
+
+
+            <form>
+                <div class="form-group">
+                    <label for="salary">Worktime</label>
+                    <input type="number" class="form-control" id="salary" aria-describedby="emailHelp"
+                        placeholder="Enter hoursPerWeek" [value]="hoursPerWeek">
+                    <small id="emailHelp" class="form-text text-muted">Your hours per week</small>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input type="number" class="form-control" id="salary" aria-describedby="emailHelp"
+                        placeholder="Enter salary" [value]="work.salary.yearly">
+                    <small id="emailHelp" class="form-text text-muted">Your yearly salayr</small>
+                </div>
+                <div class="form-group">
+                    <label for="taxes">Taxes</label>
+                    <input type="number" class="form-control" id="taxes" aria-describedby="emailHelp"
+                        placeholder="Enter taxes" [value]="work.tax.yearly">
+                    <small id="emailHelp" class="form-text text-muted">Your yearly taxes. For swiss it can be
+                        caluclated here: <a target="_blank"
+                            href="https://en.comparis.ch/steuern/steuervergleich/default">Tax Calculator</a>
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="pillar">Pillar 3A</label>
+                    <input type="number" class="form-control" id="pillar" aria-describedby="emailHelp"
+                        placeholder="Enter pillar 3a" [value]="work.pillar.yearly">
+                    <small id="emailHelp" class="form-text text-muted">Your yearly pillar 3a </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="rent">Rent</label>
+                    <input type="number" class="form-control" id="rent" aria-describedby="emailHelp"
+                        placeholder="Enter rent" [value]="work.rent.monthly">
+                    <small id="emailHelp" class="form-text text-muted">Your monthly rent</small>
+                </div>
+                <div class="form-group">
+                    <label for="food">Food</label>
+                    <input type="number" class="form-control" id="food" aria-describedby="emailHelp"
+                        placeholder="Enter going out money" [value]="work.food.monthly">
+                    <small id="emailHelp" class="form-text text-muted">Your monthly going out money</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="going-out">Going out</label>
+                    <input type="number" class="form-control" id="going-out" aria-describedby="emailHelp"
+                        placeholder="Enter going out money" [value]="work.goOut.monthly">
+                    <small id="emailHelp" class="form-text text-muted">Your monthly going out money</small>
+                </div>
+                <div class="form-group">
+                    <label for="other">Other</label>
+                    <input type="number" class="form-control" id="other" aria-describedby="emailHelp"
+                        placeholder="Enter going out money" [value]="work.other.monthly">
+                    <small id="emailHelp" class="form-text text-muted">Your monthly other costs</small>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="calculate();">Calculate</button>
+            </form>
+
+            <br><br>
+            <div id="calculation">
+                <ul class="list-group">
+                    <li class="list-group-item active">Salary</li>
+                    <li class="list-group-item">Per Day: {{work?.salary?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Taxes</li>
+                    <li class="list-group-item">Per Day: {{work?.tax?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Pillar 3A</li>
+                    <li class="list-group-item">Per Day: {{work?.pillar?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Rent</li>
+                    <li class="list-group-item">Per Day: {{work?.rent?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Food</li>
+                    <li class="list-group-item">Per Day: {{work?.food?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Go out</li>
+                    <li class="list-group-item">Per Day: {{work?.goOut?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Other</li>
+                    <li class="list-group-item">Per Day: {{work?.other?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Saving</li>
+                    <li class="list-group-item">Per Day: {{work?.saving?.daily}}</li>
+                </ul>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item active">Work Times</li>
+                    <li class="list-group-item">From {{work?.tax?.startTime?.readable}} to {{work?.tax?.endTime?.readable}}
+                        you are working for taxes. <br>
+
+                        This is a total of {{work?.tax?.totalTime?.readable}}
+                    </li>
+                    <li class="list-group-item">From {{work?.pillar?.startTime?.readable}} to {{work?.pillar?.endTime?.readable}}
+                        you are working for pillar 3a. <br>
+
+                        This is a total of {{work?.pillar?.totalTime?.readable}}
+                    </li>
+                    <li class="list-group-item">From {{work?.rent?.startTime?.readable}} to {{work?.rent?.endTime?.readable}}
+                        you are working for rent. <br>
+
+                        This is a total of {{work?.rent?.totalTime?.readable}}
+                    </li>
+                    <li class="list-group-item">From {{work?.food?.startTime?.readable}} to {{work?.food?.endTime?.readable}}
+                        you are working for food. <br>
+
+                        This is a total of {{work?.food?.totalTime?.readable}}
+                    </li>
+                    <li class="list-group-item">From {{work?.goOut?.startTime?.readable}} to {{work?.goOut?.endTime?.readable}}
+                        you are working for go out. <br>
+
+                        This is a total of {{work?.goOut?.totalTime?.readable}}
+                    </li>
+                    <li class="list-group-item">From {{work?.other?.startTime?.readable}} to {{work?.other?.endTime?.readable}}
+                        you are working for go other. <br>
+
+                        This is a total of {{work?.other?.totalTime?.readable}}
+                    </li>
+                    <li class="list-group-item">From {{work?.saving?.startTime?.readable}} to {{work?.saving?.endTime?.readable}}
+                        you are working for saving. <br>
+
+                        This is a total of {{work?.saving?.totalTime?.readable}}
+                    </li>
+                </ul>
+
+            </div>
+
+
+
+
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>
+</div>
